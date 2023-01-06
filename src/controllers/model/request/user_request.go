@@ -3,6 +3,6 @@ package request
 type UserRequest struct {
 	Email string `json:"email"`
 	Password string `json:"password"`
-	name string `json:"name"`
-	age int8 `json:"age"`
+	Name string `json:"name"`
+	Age int8 `json:"age"`
 }
