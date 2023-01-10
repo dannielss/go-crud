@@ -1,6 +1,9 @@
 package logger
 
 import (
+	"os"
+	"strings"
+
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )
@@ -11,7 +14,7 @@ var (
 
 func init() {
 	logConfig := zap.Config{
-		OutputPaths: []string{"stdout"},
+		OutputPaths: []string{getOutputLogs()},
 		Level: zap.NewAtomicLevelAt(zap.InfoLevel),
 		Encoding: "json",
 		EncoderConfig: zapcore.EncoderConfig{
@@ -25,4 +28,14 @@ func init() {
 	}
 
 	log, _ = logConfig.Build()
+}
+
+func getOutputLogs() string {
+	output := strings.ToLower(strings.TrimSpace(os.Getenv("LOG_OUTPUT")))
+
+	if output == "" {
+		return "stdout"
+	}
+
+	return output
 }
