@@ -10,6 +10,9 @@ import (
 
 var (
 	log *zap.Logger
+
+	LOG_OUTPUT = "LOG_OUTPUT"
+	LOG_LEVEL = "LOG_LEVEL"
 )
 
 func init() {
@@ -31,7 +34,7 @@ func init() {
 }
 
 func getOutputLogs() string {
-	output := strings.ToLower(strings.TrimSpace(os.Getenv("LOG_OUTPUT")))
+	output := strings.ToLower(strings.TrimSpace(os.Getenv(LOG_OUTPUT)))
 
 	if output == "" {
 		return "stdout"
@@ -41,7 +44,7 @@ func getOutputLogs() string {
 }
 
 func getLevelLogs() zapcore.Level {
-	switch strings.ToLower(strings.TrimSpace(os.Getenv("LOG_LEVEL"))) {
+	switch strings.ToLower(strings.TrimSpace(os.Getenv(LOG_LEVEL))) {
 		case "info":
 			return zapcore.InfoLevel
 		case "error":
