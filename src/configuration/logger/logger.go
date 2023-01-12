@@ -33,6 +33,17 @@ func init() {
 	log, _ = logConfig.Build()
 }
 
+func Info(message string, tags ...zap.Field) {
+	log.Info(message, tags...)
+	log.Sync()
+}
+
+func Error(message string, err error, tags ...zap.Field) {
+	tags = append(tags, zap.NamedError("error", err))
+	log.Info(message, tags...)
+	log.Sync()
+}
+
 func getOutputLogs() string {
 	output := strings.ToLower(strings.TrimSpace(os.Getenv(LOG_OUTPUT)))
 
