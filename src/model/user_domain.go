@@ -8,7 +8,9 @@ import (
 )
 
 func NewUserDomain(
-	email, password, name string,
+	email, 
+	password, 
+	name string,
 	age int8,
 ) UserDomainInterface {
 	return &UserDomain{
