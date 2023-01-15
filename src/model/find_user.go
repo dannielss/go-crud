@@ -4,6 +4,6 @@ import (
 	"github.com/dannielss/go-crud/src/configuration/rest_err"
 )
 
-func (ud *UserDomain) FindUser(id string) (*UserDomain, *rest_err.RestErr) {
-	return &UserDomain{}, nil
+func (ud *userDomain) FindUser(id string) (*userDomain, *rest_err.RestErr) {
+	return &userDomain{}, nil
 }
