@@ -5,6 +5,15 @@ import (
 	"encoding/hex"
 )
 
+type UserDomainInterface interface {
+	GetEmail() string
+	GetPassword() string
+	GetAge() int8
+	GetName() string
+
+	EncryptPassword()
+}
+
 func NewUserDomain(
 	email, 
 	password, 
@@ -26,7 +35,7 @@ type userDomain struct {
 	age int8
 }
 
-func (ud *userDomain) getEmail() string {
+func (ud *userDomain) GetEmail() string {
 	return ud.email
 }
 
