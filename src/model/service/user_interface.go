@@ -1,10 +1,21 @@
 package service
 
-import "github.com/dannielss/go-crud/src/configuration/rest_err"
+import (
+	"github.com/dannielss/go-crud/src/configuration/rest_err"
+	"github.com/dannielss/go-crud/src/model"
+)
 
-type UserDomainInterface interface {
-	CreateUser() *rest_err.RestErr
-	UpdateUser(string) *rest_err.RestErr
-	FindUser(string) (*userDomain, *rest_err.RestErr)
+func NewUserDomainService() UserDomainService {
+	return &userDomainService{}
+}
+
+type userDomainService struct {
+
+}
+
+type UserDomainService interface {
+	CreateUser(model.UserDomainInterface) *rest_err.RestErr
+	UpdateUser(string, model.UserDomainInterface) *rest_err.RestErr
+	FindUser(string) (*model.UserDomainInterface, *rest_err.RestErr)
 	DeleteUser(string) *rest_err.RestErr
 }
