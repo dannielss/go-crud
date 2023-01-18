@@ -2,8 +2,9 @@ package service
 
 import (
 	"github.com/dannielss/go-crud/src/configuration/rest_err"
+	"github.com/dannielss/go-crud/src/model"
 )
 
-func (ud *userDomain) UpdateUser(id string) *rest_err.RestErr {
+func (ud *userDomainService) UpdateUser(id string, userDomain model.UserDomainInterface) *rest_err.RestErr {
 	return nil
 }
