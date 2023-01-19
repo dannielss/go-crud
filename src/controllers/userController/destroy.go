@@ -2,4 +2,4 @@ package userController
 
 import "github.com/gin-gonic/gin"
 
-func DestroyUser(c *gin.Context) {}
+func (uc *userControllerInterface) DestroyUser(c *gin.Context) {}
