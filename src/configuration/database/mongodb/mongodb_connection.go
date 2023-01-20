@@ -3,6 +3,7 @@ package mongodb
 import (
 	"context"
 
+	"github.com/dannielss/go-crud/src/configuration/logger"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -18,4 +19,6 @@ func InitConnection() {
 	if err := client.Ping(ctx, nil); err != nil {
 		panic(err)
 	}
+
+	logger.Info("mongodb succesfully connected")
 }
