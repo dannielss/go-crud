@@ -13,7 +13,7 @@ type UserDomainInterface interface {
 
 	SetID(string)
 
-	Encryptpassword()
+	EncryptPassword()
 }
 
 func NewUserDomain(
@@ -59,7 +59,7 @@ func (ud *userDomain) SetID(id string) {
 	ud.id = id
 }
 
-func (ud *userDomain) Encryptpassword() {
+func (ud *userDomain) EncryptPassword() {
 	hash := md5.New()
 	defer hash.Reset()
 	hash.Write([]byte(ud.password))
