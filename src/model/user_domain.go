@@ -11,7 +11,7 @@ type UserDomainInterface interface {
 	GetAge() int8
 	GetName() string
 
-	Setid(string)
+	SetID(string)
 
 	Encryptpassword()
 }
@@ -55,7 +55,7 @@ func (ud *userDomain) GetAge() int8 {
 	return ud.age
 }
 
-func (ud *userDomain) Setid(id string) {
+func (ud *userDomain) SetID(id string) {
 	ud.id = id
 }
 

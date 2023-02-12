@@ -7,6 +7,7 @@ import (
 	"github.com/dannielss/go-crud/src/configuration/logger"
 	"github.com/dannielss/go-crud/src/configuration/rest_err"
 	"github.com/dannielss/go-crud/src/model"
+	"github.com/dannielss/go-crud/src/model/entity/converter"
 )
 
 const (
@@ -21,12 +22,8 @@ func (ur *userRepository) CreateUser(
 
 	collection := ur.databaseConnection.Collection(collection_name)
 
-	 value, err := userDomain.GetJSONValue(); 
+	 value := converter.ConvertDomainToEntity(userDomain)
 
-	 if err != nil {
-		return nil, rest_err.NewInternalServerError(err.Error())
-	}
-	
 	result, err := collection.InsertOne(context.Background(), value)
 
 	if err != nil {
