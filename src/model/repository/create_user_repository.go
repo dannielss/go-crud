@@ -30,7 +30,7 @@ func (ur *userRepository) CreateUser(
 		return nil, rest_err.NewInternalServerError(err.Error())
 	}
 
-	userDomain.SetID(result.InsertedID.(string))
+	value.ID = result.InsertedID.(string)
 
-	return userDomain, nil
+	return converter.ConvertEntityToDomain(*value), nil
 }
